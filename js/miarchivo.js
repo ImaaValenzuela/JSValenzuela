@@ -1,97 +1,83 @@
+class Producto{
+    constructor(nombre, precio){
+        this.nombre = nombre
+        this.precio = precio
+    }
+}
+
+const dakiti = new Producto ("Dakiti", 7050)
+const queen = new Producto ("Queen", 6950)
+const jack = new Producto ("Jack", 7250)
+const gorraVisera = new Producto ("Visera", 1800)
+const gorraRasgada = new Producto ("Gorra Rasgada", 2000)
+const gorraPlana = new Producto ("Gorra Plana", 1800)
+
 function inicio(){
-    let nombre = prompt('¿Cómo es tu nombre?')
-    alert(`Hola ${nombre} Bienvenido a la Magic Tienda`)
+    let nombre = prompt('Hola de nuevo! Por favor, ingrese su nombre de usuario')
+    alert(`Hola ${nombre}! Bienvenido a la Magic Tienda`)
 }
 inicio()
 
-function menuSecundario(){
-    let menuSec = prompt('¿Desea comprar otro producto? (si/no)')
-    if(menuSec == 'si' || menuSec == 'SI' || menuSec == 'Si' ){
-        menu()
-    }else if(menuSec == 'no' || menuSec == 'NO' || menuSec == 'No'){
+function seguirComprando(){
+    let repregunta = prompt('¿Desea comprar algo mas? (si/no)')
+    let eleccion = repregunta.toUpperCase()
+    if(eleccion == 'SI'){
+        compra()
+    }else if(eleccion == 'NO'){
+        alert(`Usted compro: \n ${total}`)
         alert('Muchas gracias por tu compra, nos ayudarias compartiendo el producto en Instagram y etiquetandonos @Magic.Tienda')
     }else{
         alert('Ingrese una opción valida')
-        menuSecundario()
+        seguirComprando()
     }
 }
 
-function metodoPago(){
-    let pago = prompt('Seleccione su metodo de pago \n 1. Efectivo o Transferencia (15% OFF) \n 2. Tarjeta de Credito (Con Recargo)')
-    if(pago == 1){
-        let monto = parseFloat(prompt('Ingrese el monto total a pagar de su producto deseado UNICAMENTE EN NUMEROS (Precio Zapatillas: \n Dakiti Reflex: $7050 \n Jack: $7250 \n Queen: $6950 \n Precio Gorras\n Gorra Visera: $1800 \n Gorra Rasgada: $2000 \n Gorra Plana: $1800)')) 
-        let descuento = monto * 0.10
-        let total = monto - descuento
-        alert(`Su pago es de: ${total}`)
-    }else if(pago == 2){
-        let monto = parseFloat(prompt('Ingrese el monto total a pagar de su producto deseado UNICAMENTE EN NUMEROS (Precio Zapatillas: \n Dakiti Reflex: $7050 \n Jack: $7250 \n Queen: $6950 \n Precio Gorras\n Gorra Visera: $1800 \n Gorra Rasgada: $2000 \n Gorra Plana: $1800)')) 
-        alert('Usted tiene para elegir:')
-        for(let i = 1; i <= 6; i++){
-            let interes = monto * (i * 0.05)
-            let cuota = Math.round((monto + interes) / i) 
-            let total = Math.round(monto + interes)
-            alert(`${i} cuota/s de: $ ${cuota} \nTotal de: $ ${total}`)
+let total = []
+
+function compra(){
+    let pregunta = prompt('¿Qué desea comprar? \n 1- Zapatillas \n 2- Gorras')
+    let eleccion = pregunta.toUpperCase()
+    if(eleccion == 1){
+        let opciones = parseFloat(prompt(`Nuestras opciones son: \n 1. ${dakiti.nombre}: $${dakiti.precio} \n 2. ${queen.nombre}: $${queen.precio} \n 3. ${jack.nombre}: $${jack.precio}`))
+        switch(opciones){
+            case 1:
+                total.push(`${dakiti.nombre}: ${dakiti.precio}\n`)
+                seguirComprando()
+                break
+            case 2:
+                total.push(`${queen.nombre}: ${queen.precio}\n`)
+                seguirComprando()
+                break
+            case 3:
+                total.push(`${jack.nombre}: ${jack.precio}\n`)
+                seguirComprando()
+                break
+            default:
+                alert("Por favor, seleccione una opcion valida")
+                compra()
         }
-        let cuotas = parseInt(prompt('¿En cuantas cuotas desea pagar?')) 
-        if(cuotas == 1 || cuotas == 2 || cuotas == 3 || cuotas == 4 ||cuotas == 5 ||cuotas == 6){
-            alert(`Enhorabuena su pago se ha concretado en ${cuotas} cuota/s`)
-        }else{
-            alert('Ingrese una opción valida')
-            metodoPago()
+    }else if(eleccion == 2){
+        let opciones = parseInt(prompt(`Nuestras opciones son: \n 1. ${gorraPlana.nombre}: $${gorraPlana.precio} \n 2. ${gorraRasgada.nombre}: $${gorraRasgada.precio} \n 3. ${gorraVisera.nombre}: $${gorraVisera.precio}`))
+        switch(opciones){
+            case 1:
+                total.push(`${gorraPlana.nombre}: ${gorraPlana.precio}\n`)
+                seguirComprando()
+                break
+            case 2:
+                total.push(`${gorraRasgada.nombre}: ${gorraRasgada.precio}\n`)
+                seguirComprando()
+                break
+            case 3:
+                total.push(`${gorraVisera.nombre}: ${gorraVisera.precio}\n`)
+                seguirComprando()
+                break
+            default: 
+                alert("Por favor, seleccione una opcion valida")
+                compra()
         }
-    }
-}
-
-function zapatillas(){
-    let seleccionZapa = prompt('Nuestras opciones son: \n 1- Dakiti Reflex: $7050 \n 2- Jack: $7250 \n 3- Queen: $6950')
-    if(seleccionZapa == 1){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
-    }else if(seleccionZapa == 2){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
-    }else if(seleccionZapa == 3){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
     }else{
-        alert('No se encontró la opción')
-        zapatillas()
+            alert('Por favor, seleccione una opcion valida')
+            compra()
     }
 }
-
-function gorras(){
-    let seleccionGorra = prompt('Nuestras opciones son: \n 1- Gorra Visera: $1800 \n 2- Gorra Rasgada: $2000 \n 3. Gorra Plana: $1800')
-    if(seleccionGorra == 1){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
-    }else if(seleccionGorra == 2){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
-    }else if(seleccionGorra == 3){
-        alert('Por favor seleccione su metodo de pago')
-        metodoPago()
-        menuSecundario()
-    }else{
-        alert('No se encontró la opción')
-        gorras()
-    }
-}
-
-
-function menu(){
-    let pregunta = prompt('¿Que desea comprar? \n 1- Zapatillas \n 2- Gorras')
-    if(pregunta == 1){
-        zapatillas()
-    }else if(pregunta == 2){
-        gorras()
-    }else{
-        alert('Ingrese una opcion válido')
-        menu()
-    }
-}
-menu()
+compra()
