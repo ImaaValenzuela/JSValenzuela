@@ -1,136 +1,81 @@
-class Zapatillas{
-    constructor(nombre,precio){
-        this.nombre = nombre;
-        this.precio = parseInt(precio);
-    }
-;}
-
-const zapatillas = [
-    dakiti = (new Zapatillas("1. Dakiti", "6300")),
-    queen = (new Zapatillas("2. Queen", "6200")),
-    jack = (new Zapatillas("3. Jack", "7000")),
-];
-
-const zapatillasConDescuento = zapatillas.map(function(producto){
-    if (producto.precio < 6400){
-        return producto;
-    }
-    return{
-        ...producto,
-        precio: producto.precio - 500
-    }
-});
-
-const infoZapatillas = zapatillas.map(({nombre}) => nombre);
-
-
-class Gorras{
-    constructor(nombre,precio){
-        this.nombre = nombre;
-        this.precio = parseInt(precio);
-    }
-    sumaIva(){
-        this.precio = this.precio*1.21;
+class Producto{
+    constructor(nombre, precio, foto, categoria, id){
+        this.nombre = nombre
+        this.precio = precio
+        this.foto = foto
+        this.categoria = categoria
+        this.id = id
     }
 };
-
-const gorras = [
-    gorrany = (new Gorras("1. Gorra New York", "1800")),
-    gorraLa = (new Gorras("2. Gorra Los Angeles", "1900")),
-    gorraCuero = (new Gorras("3. Gorra de CUERO", "2100")),
-];
-
-const infoGorras = gorras.map(({nombre}) => nombre);
-
-const hoy = new Date("July 4,2022");
-const entrega = new Date("July 9,2022");
-const milisegundosPorDia = 86400000;
-const envio = (entrega-hoy) / milisegundosPorDia;
-
-function inicio(){
-    alert(`Hola! Bienvenido a la Magic Tienda`)
+class Carrito {
+    constructor(id, productos) {
+    this.id = id;
+    this.productos = productos;
+    }
+    calcularTotal() {
+    let sumatoria = 0;
+    for(let i = 0; i < this.productos.length; i++) {
+        sumatoria = sumatoria + this.productos[i].precio; 
+    }
+    return sumatoria;
+    }
 };
-inicio();
+let carrito = new Carrito(1, []);
+let totalCompra = document.getElementById("totalCompra");
+let card = document.getElementById("card");
+const listaProductos = [];
+const catalogo = [];
+let nombre = prompt('¡Hola! Bienvenido a la Magic Tienda ¿Cómo es tu nombre?');
+const jack = new Producto ("Jack Black", 7100, "./media/jack.jpeg", "zapa", 1);
+const dakiti = new Producto ("Dakiti Black", 6500, "./media/dakiti.jpeg", "zapa", 2);
+const queen = new Producto ("Queen Black", 6200, "./media/queen.jpeg", "zapa", 3);
+const gorraLa = new Producto ("Gorra Los Angeles", 2000, "./media/gorrala.jpeg", "gorra", 4);
+const gorraNy = new Producto ("Gorra New York", 2000, "./media/gorrany.jpeg", "gorra", 5);
+const gorraRb = new Producto ("Gorra Red Bull", 2300, "./media/gorrarb.jpeg", "gorra", 6);
+catalogo.push(jack);
+catalogo.push(dakiti);
+catalogo.push(queen);
+catalogo.push(gorraLa);
+catalogo.push(gorraNy);
+catalogo.push(gorraRb);
 
-function datos(){
-    let localidad  = prompt('Por favor ingrese su localidad para la entrega');
-    let nombre = prompt ('Ahora ingrese el nombre y apellido de la persona que recibira el pedido');
-    alert(`Muchas gracias por tu compra, tu pedido llegara en ${envio} dias, a la localidad de ${localidad} y lo recibira ${nombre}`);
+function cards(){
+for(const producto of listaProductos){
+    let columna = document.createElement("div");
+    columna.className = "col-md-3 col-sm-12 mt-5";
+    columna.id = `columna-${producto.id}`;
+    columna.innerHTML = 
+                `<div class="card">
+                    <img src=${producto.foto} style="width: 16rem; height: 16rem;" class="card-img-top" alt="Producto">
+                    <div class="card-body">
+                    <h5 class="card-title">${producto.nombre}</h5>
+                    <p class="card-text">$${producto.precio}</p>
+                    </div>
+                </div>`
+    card.append(columna);
 }
-
-
-let total = [];
-
-function menuGorras (){
-    let seleccionGorra = prompt(`Los modelos que tenemos son los siguientes: ${infoGorras.join("\n")}`);
-    if (seleccionGorra == 1 ||seleccionGorra == "Gorra New York"){
-        total.push(gorrany.precio);
-        pago();
-    } else if (seleccionGorra == 2 || seleccionGorra == "Gorra Los Angeles"){
-        total.push(gorraLa.precio);
-        pago();
-    } else if (seleccionGorra == 3 || seleccionGorra == "Gorra de CUERO"){
-        total.push(gorraCuero.precio);
-        pago();
-    } else {
-        alert("Por favor, seleccione una opcion valida");
-    }
 };
 
-function menuZapatillas (){
-    let seleccionZapa = prompt(`Los modelos que tenemos son los siguientes: ${infoZapatillas.join("\n")}`);
-    if (seleccionZapa == 1 ||seleccionZapa == "Dakiti"){
-        total.push(dakiti.precio);
-        pago();
-    } else if (seleccionZapa == 2 || seleccionZapa == "Queen"){
-        total.push(queen.precio);
-        pago();
-    } else if (seleccionZapa == 3 || seleccionZapa == "Jack"){
-        total.push(jack.precio);
-        pago();
-    } else {
-        alert("Por favor, seleccione una opcion valida");
-        menuZapatillas();
-    }
+function seguirComprando(){
+let repregunta = prompt('¿Le gustaria comprar algo mas? (si/no)');
+let eleccion = repregunta.toUpperCase();
+if(eleccion == 'SI'){
+    menu();
+}else if(eleccion == 'NO'){
+    carrito.productos = listaProductos;
+    cards();
+    const total = carrito.calcularTotal();
+    totalCompra.innerHTML = `<p>El total de su compra es de: <b>$${total}</b></p>`;
+}else{
+    alert('Ingrese una opción valida');
+    seguirComprando();
+}
 };
 
-function pago (){
-    let pago = prompt("Seleccione su metodo de pago:\n 1. Efectivo\n 2.Tarjeta de Credito ");
-    if (pago == 1){
-        alert(`El total a pagar es: \n ${total}`);
-        datos();
-    } else if(pago==2){
-        alert ("Usted tiene para elegir:");
-        for(let i=1; i<=6; i++){
-            let interes = parseInt(`${total}`) + 700;
-            let cuota = Math.round(interes / i);
-            let final = interes;
-            alert(`${i} cuota/s de: $${cuota} \n Total de: ${final}`);
-        } 
-        let cuotas = parseInt(prompt("¿En cuantas cuotas desea pagar?"));
-        if(cuotas == 1|| cuotas == 2 || cuotas == 3 || cuotas== 4|| cuotas== 5|| cuotas== 6){
-            alert(`Su pago se concreto en ${cuotas} cuota/s`);
-        } else{
-            alert("Por favor, seleccione una opcion valida");
-            (pago);
-        }
-        datos();
-    } else {
-        alert("Por favor, ingrese el numero de la opcion que desee");
-        pago();
-    }
+function menu(){
+    let codigo = parseInt(prompt(`${nombre}, nuestro catalogo es el siguiente: \n 1. ${jack.nombre}: $${jack.precio} \n 2. ${dakiti.nombre}: $${dakiti.precio} \n 3. ${queen.nombre}: $${queen.precio} \n 4. ${gorraLa.nombre}: $${gorraLa.precio} \n 5. ${gorraNy.nombre}: $${gorraNy.precio} \n 6. ${gorraRb.nombre}: $${gorraRb.precio}\n IMPORTANTE: Por Favor seleccione un numero de la opcion que desee`));
+    let productoSeleccionado = catalogo.find(producto => producto.id == codigo);
+    listaProductos.push(productoSeleccionado);
+    seguirComprando();
 };
-
-function menu (){
-    let menu = prompt('¿Que desea comprar? \n 1. Zapatillas\n 2. Gorras');
-    if(menu == 1 || menu == '1' || menu == 'Zapatillas'){
-        menuZapatillas();
-    } else if(menu == 2|| menu == '2' || menu== 'Gorras') {
-        menuGorras();
-    } else {
-        alert("Por favor, seleccione una opcion valida");
-        menu();
-    }
-};
-
 menu();
