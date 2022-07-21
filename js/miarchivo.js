@@ -6,10 +6,9 @@ const baseDeDatos = [
     {id:04, tipo:"Gorras", nombre:"Gorra LA", precio: 2000, imagen: "./media/gorrala.jpeg" },
     {id:05, tipo:"Gorras", nombre:"Gorra NY", precio: 2000, imagen: "./media/gorrany.jpeg" },
     {id:06, tipo:"Gorras", nombre:"Gorra RB", precio: 2300, imagen: "./media/gorrarb.jpeg" },
-
 ];
 
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem('carrito'))||[]; // OR
 const divisa = '$';
 const DOMitems = document.querySelector('#items');
 const DOMcarrito = document.querySelector('#carrito');
@@ -95,6 +94,7 @@ function calcularTotal() {
 }
 
 function vaciarCarrito() {
+    carrito.length === 0 && alert("El carrito esta vacio") // AND
     carrito = [];
     renderizarCarrito();
 }
