@@ -16,6 +16,8 @@ const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#boton-vaciar');
 
 
+
+
 function renderizarProductos() {
     baseDeDatos.forEach((info) => {
         const miNodo = document.createElement('div');
@@ -94,14 +96,29 @@ function calcularTotal() {
 }
 
 function vaciarCarrito() {
-    carrito.length === 0 && alert("El carrito esta vacio") // AND
     carrito = [];
     renderizarCarrito();
 }
 
-
-DOMbotonVaciar.addEventListener('click', vaciarCarrito);
-
+DOMbotonVaciar.addEventListener('click', () => {
+ 
+    if (carrito.length === 0 ){
+        swal.fire({
+            title: 'Error!',
+            text: 'Tu carrito esta vacio!',
+            icon: 'error',
+            confirmButtonText: ' =( '
+        }) 
+    } else {
+        Swal.fire({
+            title: 'Genial!',
+            text: 'Tu carrito se elimino correctamente, esperamos verte pronto!',
+            icon: 'success',
+            confirmButtonText: ';)'
+        })
+        vaciarCarrito()
+    }
+})
 
 renderizarProductos();
 renderizarCarrito();
