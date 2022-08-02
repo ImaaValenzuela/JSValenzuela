@@ -1,0 +1,184 @@
+[
+    {
+        "id": 1,
+        "tipo": "Zapas",
+        "nombre": "Queen Black Reflex",
+        "precio": 6950,
+        "imagen": "./media/zapas/queenblack.jpg"
+    },
+    {
+        "id": 2,
+        "tipo": "Zapas",
+        "nombre": "Queen White Reflex",
+        "precio": 6950,
+        "imagen": "./media/zapas/queenwhite.jpg"
+    },
+    {
+        "id": 3,
+        "tipo": "Zapas",
+        "nombre": "Queen Splash LIMITED EDITION",
+        "precio": 7550,
+        "imagen": "./media/zapas/queensplash.jpg"
+    },
+    {
+        "id": 4,
+        "tipo": "Zapas",
+        "nombre": "Jack Gray Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackgray.jpg"
+    },
+    {
+        "id": 5,
+        "tipo": "Zapas",
+        "nombre": "Jack white Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackwhite.jpg"
+    },
+    {
+        "id": 6,
+        "tipo": "Zapas",
+        "nombre": "Jack Black Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackblack.jpg"
+    },
+    {
+        "id": 7,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Black Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiblack.jpg"
+    },
+    {
+        "id": 8,
+        "tipo": "Zapas",
+        "nombre": "Dakiti White Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiwhite.jpg"
+    },
+    {
+        "id": 9,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Gray Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitigray.jpg"
+    },
+    {
+        "id": 10,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Nb Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitinb.jpg"
+    },
+    {
+        "id": 11,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Orange Reflex LIMITED EDITION",
+        "precio": 7850,
+        "imagen": "./media/zapas/dakitiorange.jpg"
+    },
+    {
+        "id": 12,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Yellow Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiyellow.jpg"
+    },
+    {
+        "id": 13,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Dark Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitidark.jpg"
+    },
+    {
+        "id": 14,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Galaxy Black Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitigalaxyblack.jpg"
+    },
+    {
+        "id": 15,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York City Beige",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorranycbeige.jpg"
+    },
+    {
+        "id": 16,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Blanca",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralablanca.jpg"
+    },
+    {
+        "id": 17,
+        "tipo": "Gorras",
+        "nombre": "Gorra Red Bull Infinity",
+        "precio": 2400,
+        "imagen": "./media/gorras/gorrarbinf.jpg"
+    },
+    {
+        "id": 18,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York City Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorranycred.jpg"
+    },
+    {
+        "id": 19,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Marron",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralamarron.jpg"
+    },
+    {
+        "id": 20,
+        "tipo": "Gorras",
+        "nombre": "Gorra Volvo Pirelli",
+        "precio": 2400,
+        "imagen": "./media/gorras/gorravolvo.jpg"
+    },
+    {
+        "id": 21,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York Negra",
+        "precio": 2000,
+        "imagen": "./media/gorras/gorranynegra.jpg"
+    },
+    {
+        "id": 22,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralared.jpg"
+    },
+    {
+        "id": 23,
+        "tipo": "Gorras",
+        "nombre": "Gorra BMW Rasgada",
+        "precio": 2700,
+        "imagen": "./media/gorras/gorrabmw.jpg"
+    },
+    {
+        "id": 24,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York Blanca",
+        "precio": 2000,
+        "imagen": "./media/gorras/gorranyblanca.jpg"
+    },
+    {
+        "id": 25,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Negra/Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralaredblack.jpg"
+    },
+    {
+        "id": 26,
+        "tipo": "Gorras",
+        "nombre": "Gorra Red Bull Racing",
+        "precio": 2900,
+        "imagen": "./media/gorras/gorraredbullrac.jpg"
+    }
+]

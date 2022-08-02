@@ -1,21 +1,244 @@
+/*let preloader = select('#preloader');
+if (preloader) {
+  window.addEventListener('load', () => {
+    preloader.remove()
+  });
+} EN BUCLE*/ 
+
 
 const baseDeDatos = [
-    {id:01, tipo:"Zapas", nombre:"Dakiti Reflex", precio: 7000, imagen: "./media/dakiti.jpeg" },
-    {id:02, tipo:"Zapas", nombre:"Queen Reflex", precio: 6900, imagen: "./media/queen.jpeg" },
-    {id:03, tipo:"Zapas", nombre:"Jack Reflex", precio: 7200, imagen: "./media/jack.jpeg" },
-    {id:04, tipo:"Gorras", nombre:"Gorra LA", precio: 2000, imagen: "./media/gorrala.jpeg" },
-    {id:05, tipo:"Gorras", nombre:"Gorra NY", precio: 2000, imagen: "./media/gorrany.jpeg" },
-    {id:06, tipo:"Gorras", nombre:"Gorra RB", precio: 2300, imagen: "./media/gorrarb.jpeg" },
+    {
+        "id": 1,
+        "tipo": "Zapas",
+        "nombre": "Queen Black Reflex",
+        "precio": 6950,
+        "imagen": "./media/zapas/queenblack.jpg"
+    },
+    {
+        "id": 2,
+        "tipo": "Zapas",
+        "nombre": "Queen White Reflex",
+        "precio": 6950,
+        "imagen": "./media/zapas/queenwhite.jpg"
+    },
+    {
+        "id": 3,
+        "tipo": "Zapas",
+        "nombre": "Queen Splash LIMITED EDITION",
+        "precio": 7550,
+        "imagen": "./media/zapas/queensplash.jpg"
+    },
+    {
+        "id": 4,
+        "tipo": "Zapas",
+        "nombre": "Jack Gray Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackgray.jpg"
+    },
+    {
+        "id": 5,
+        "tipo": "Zapas",
+        "nombre": "Jack white Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackwhite.jpg"
+    },
+    {
+        "id": 6,
+        "tipo": "Zapas",
+        "nombre": "Jack Black Reflex",
+        "precio": 7250,
+        "imagen": "./media/zapas/jackblack.jpg"
+    },
+    {
+        "id": 7,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Black Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiblack.jpg"
+    },
+    {
+        "id": 8,
+        "tipo": "Zapas",
+        "nombre": "Dakiti White Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiwhite.jpg"
+    },
+    {
+        "id": 9,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Gray Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitigray.jpg"
+    },
+    {
+        "id": 10,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Nb Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitinb.jpg"
+    },
+    {
+        "id": 11,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Orange Reflex LIMITED EDITION",
+        "precio": 7850,
+        "imagen": "./media/zapas/dakitiorange.jpg"
+    },
+    {
+        "id": 12,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Yellow Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitiyellow.jpg"
+    },
+    {
+        "id": 13,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Dark Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitidark.jpg"
+    },
+    {
+        "id": 14,
+        "tipo": "Zapas",
+        "nombre": "Dakiti Galaxy Black Reflex",
+        "precio": 7050,
+        "imagen": "./media/zapas/dakitigalaxyblack.jpg"
+    },
+    {
+        "id": 15,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York City Beige",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorranycbeige.jpg"
+    },
+    {
+        "id": 16,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Blanca",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralablanca.jpg"
+    },
+    {
+        "id": 17,
+        "tipo": "Gorras",
+        "nombre": "Gorra Red Bull Infinity",
+        "precio": 2400,
+        "imagen": "./media/gorras/gorrarbinf.jpg"
+    },
+    {
+        "id": 18,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York City Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorranycred.jpg"
+    },
+    {
+        "id": 19,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Marron",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralamarron.jpg"
+    },
+    {
+        "id": 20,
+        "tipo": "Gorras",
+        "nombre": "Gorra Volvo Pirelli",
+        "precio": 2400,
+        "imagen": "./media/gorras/gorravolvo.jpg"
+    },
+    {
+        "id": 21,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York Negra",
+        "precio": 2000,
+        "imagen": "./media/gorras/gorranynegra.jpg"
+    },
+    {
+        "id": 22,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralared.jpg"
+    },
+    {
+        "id": 23,
+        "tipo": "Gorras",
+        "nombre": "Gorra BMW Rasgada",
+        "precio": 2700,
+        "imagen": "./media/gorras/gorrabmw.jpg"
+    },
+    {
+        "id": 24,
+        "tipo": "Gorras",
+        "nombre": "Gorra New York Blanca",
+        "precio": 2000,
+        "imagen": "./media/gorras/gorranyblanca.jpg"
+    },
+    {
+        "id": 25,
+        "tipo": "Gorras",
+        "nombre": "Gorra Los Angeles Negra/Roja",
+        "precio": 2100,
+        "imagen": "./media/gorras/gorralaredblack.jpg"
+    },
+    {
+        "id": 26,
+        "tipo": "Gorras",
+        "nombre": "Gorra Red Bull Racing",
+        "precio": 2900,
+        "imagen": "./media/gorras/gorraredbullrac.jpg"
+    }
 ];
 
-let carrito = JSON.parse(localStorage.getItem('carrito'))||[]; // OR
+function obtenerProductos(){
+    fetch('https://62e882fe93938a545be6f57f.mockapi.io/products')
+  .then(response => response.json())
+  .then(json => console.log(json))
+}
+
+
+
+/*function baseDeDato(){             NO SIRVE!!!
+    fetch ('../json/data.json');
+    then((res) => res.json)
+    then((data) => {
+        baseDeDatos.forEach((info) => {
+            const miNodo = document.createElement('div');
+            miNodo.classList.add('card', 'col-sm-4');
+            const miNodoCardBody = document.createElement('div');
+            miNodoCardBody.classList.add('card-body');
+            const miNodoTitle = document.createElement('h5');
+            miNodoTitle.classList.add('card-title');
+            miNodoTitle.textContent = info.nombre;
+            const miNodoImagen = document.createElement('img');
+            miNodoImagen.classList.add('img-fluid');
+            miNodoImagen.setAttribute('src', info.imagen);
+            const miNodoPrecio = document.createElement('p');
+            miNodoPrecio.classList.add('card-text');
+            miNodoPrecio.textContent = `${info.precio}${divisa}`;
+            const miNodoBoton = document.createElement('button');
+            miNodoBoton.classList.add('btn', 'btn-primary');
+            miNodoBoton.textContent = '+';
+            miNodoBoton.setAttribute('marcador', info.id);
+            miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
+            miNodoCardBody.appendChild(miNodoImagen);
+            miNodoCardBody.appendChild(miNodoTitle);
+            miNodoCardBody.appendChild(miNodoPrecio);
+            miNodoCardBody.appendChild(miNodoBoton);
+            miNodo.appendChild(miNodoCardBody);
+            DOMitems.appendChild(miNodo);
+        });
+    })
+}*/
+
+let carrito = JSON.parse(localStorage.getItem('carrito')) || []; 
 const divisa = '$';
 const DOMitems = document.querySelector('#items');
 const DOMcarrito = document.querySelector('#carrito');
 const DOMtotal = document.querySelector('#total');
 const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-
-
+const DOMbotonComprar = document.querySelector('#boton-compra');
 
 
 function renderizarProductos() {
@@ -48,7 +271,23 @@ function renderizarProductos() {
 }
 
 function anyadirProductoAlCarrito(evento) {
-    carrito.push(evento.target.getAttribute('marcador'))
+    carrito.push(evento.target.getAttribute('marcador'));
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 1200,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'success',
+        title: `Has añadido un producto a tu carrito`
+      });
     renderizarCarrito();
 
 }
@@ -83,6 +322,22 @@ function borrarItemCarrito(evento) {
     carrito = carrito.filter((carritoId) => {
         return carritoId !== id;
     });
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 900,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      
+      Toast.fire({
+        icon: 'error',
+        title: 'Se ha eliminado el producto de su carrito'
+      });
     renderizarCarrito();
 }
 
@@ -100,6 +355,28 @@ function vaciarCarrito() {
     renderizarCarrito();
 }
 
+
+DOMbotonComprar.addEventListener('click', () => {
+    if (carrito.length === 0 ){
+        swal.fire({
+            title: 'Error!',
+            text: 'Tu carrito esta vacio!',
+            icon: 'error',
+            confirmButtonText: ' =( '
+        }) 
+    } else {
+        Swal.fire(
+            'Su compra se ha realizado correctamente!',
+            'Por favor, complete los siguientes datos',
+            'success'
+          ), 
+          function(){
+            window.location.href = "./pages/pago.html";
+          }
+        vaciarCarrito();
+    }
+})
+
 DOMbotonVaciar.addEventListener('click', () => {
  
     if (carrito.length === 0 ){
@@ -111,15 +388,27 @@ DOMbotonVaciar.addEventListener('click', () => {
         }) 
     } else {
         Swal.fire({
-            title: 'Genial!',
-            text: 'Tu carrito se elimino correctamente, esperamos verte pronto!',
-            icon: 'success',
-            confirmButtonText: ';)'
-        })
+            title: 'Borrar carrito',
+            text: "Estas seguro que quieres vaciar el carrito?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, quiero vaciarlo'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire(
+                'Borrado',
+                'Su carrito se vacio con exito, Esperamos verte pronto nuevamente',
+                'success'
+              )
+            }
+          })
         vaciarCarrito()
     }
 })
 
+
 renderizarProductos();
 renderizarCarrito();
-
+obtenerProductos();
